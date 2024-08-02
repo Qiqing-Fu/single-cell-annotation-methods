@@ -36,7 +36,7 @@ def run_scBERT(DataPath, LabelsPath, CV_RDataPath, OutputDir):
 
     for i in range(np.squeeze(nfolds)):  
     
-        os.chdir("/home/u19111010045/project2_scanno/Other_software/scBERT-master/")
+        os.chdir("./scBERT-master/")
            
         train_ind_i = np.array(train_ind[i], dtype = 'int') - 1
         test_ind_i = np.array(test_ind[i], dtype = 'int') - 1

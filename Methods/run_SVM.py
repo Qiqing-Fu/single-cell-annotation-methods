@@ -8,7 +8,6 @@ import rpy2.robjects as robjects
 
 def run_SVM(DataPath, LabelsPath, CV_RDataPath, OutputDir):
 
-    # read the Rdata file
     robjects.r['load'](CV_RDataPath)
 
     nfolds = np.array(robjects.r['n_folds'], dtype = 'int')
@@ -25,11 +24,9 @@ def run_SVM(DataPath, LabelsPath, CV_RDataPath, OutputDir):
     labels = labels.iloc[tokeep]
     data = data.iloc[tokeep]
     
-   
-    # folder with results
+
     os.chdir(OutputDir)
     
-    # normalize data
     data = np.log1p(data)
         
     Classifier = LinearSVC()

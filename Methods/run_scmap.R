@@ -5,9 +5,6 @@ run_scmap <- function(DataPath,LabelsPath,CV_RDataPath,OutputDir){
   Labels <- as.vector(Labels[,col_Index])
   Data <- Data[Cells_to_Keep,]
   Labels <- Labels[Cells_to_Keep]
-  if(!is.null(GeneOrderPath) & !is.null (NumGenes)){
-    GenesOrder = read.csv(GeneOrderPath)
-  }
   
   library(scmap)
   library(SingleCellExperiment)
