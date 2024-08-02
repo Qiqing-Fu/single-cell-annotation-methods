@@ -1,15 +1,12 @@
 run_CHETAH<-function(DataPath,LabelsPath,CV_RDataPath,OutputDir){
-
+	
   Data <- read.csv(DataPath,row.names = 1)
   Labels <- as.matrix(read.csv(LabelsPath))
   load(CV_RDataPath)
   Labels <- as.vector(Labels[,col_Index])
   Data <- Data[Cells_to_Keep,]
   Labels <- Labels[Cells_to_Keep]
-  if(!is.null(GeneOrderPath) & !is.null (NumGenes)){
-    GenesOrder = read.csv(GeneOrderPath)
-  }
-  
+	
   library(CHETAH)
   library(SingleCellExperiment)
   True_Labels_CHETAH <- list()
@@ -32,6 +29,7 @@ run_CHETAH<-function(DataPath,LabelsPath,CV_RDataPath,OutputDir){
   True_Labels_CHETAH <- as.vector(unlist(True_Labels_CHETAH))
   Pred_Labels_CHETAH <- as.vector(unlist(Pred_Labels_CHETAH))
   Total_Time_CHETAH <- as.vector(unlist(Total_Time_CHETAH))  
+	
   setwd(OutputDir)  
   write.csv(True_Labels_CHETAH,'CHETAH_True_Labels.csv',row.names = FALSE)
   write.csv(Pred_Labels_CHETAH,'CHETAH_Pred_Labels.csv',row.names = FALSE)
