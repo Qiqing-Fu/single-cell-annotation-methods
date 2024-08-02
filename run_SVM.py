@@ -25,8 +25,6 @@ def run_SVM(DataPath, LabelsPath, CV_RDataPath, OutputDir):
     labels = labels.iloc[tokeep]
     data = data.iloc[tokeep]
     
-   
-    # folder with results
     os.chdir(OutputDir)
     
     # normalize data

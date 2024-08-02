@@ -5,9 +5,6 @@ run_scmap <- function(DataPath,LabelsPath,CV_RDataPath,OutputDir){
   Labels <- as.vector(Labels[,col_Index])
   Data <- Data[Cells_to_Keep,]
   Labels <- Labels[Cells_to_Keep]
-  if(!is.null(GeneOrderPath) & !is.null (NumGenes)){
-    GenesOrder = read.csv(GeneOrderPath)
-  }
   
   library(scmap)
   library(SingleCellExperiment)
@@ -76,13 +73,13 @@ run_scmap <- function(DataPath,LabelsPath,CV_RDataPath,OutputDir){
   
   setwd(OutputDir)
   
-  write.csv(True_Labels_scmapcluster,'scmapcluster_defualt_True_Labels.csv',row.names = FALSE)
-  write.csv(Pred_Labels_scmapcluster,'scmapcluster_defualt_Pred_Labels.csv',row.names = FALSE)
-  write.csv(True_Labels_scmapcell,'scmapcell_defualt_True_Labels.csv',row.names = FALSE)
-  write.csv(Pred_Labels_scmapcell,'scmapcell_defualt_Pred_Labels.csv',row.names = FALSE)
-  write.csv(Training_Time_scmapcluster,'scmapcluster_defualt_Training_Time.csv',row.names = FALSE)
-  write.csv(Testing_Time_scmapcluster,'scmapcluster_defualt_Testing_Time.csv',row.names = FALSE)
-  write.csv(Training_Time_scmapcell,'scmapcell_defualt_Training_Time.csv',row.names = FALSE)
-  write.csv(Testing_Time_scmapcell,'scmapcell_defualt_Testing_Time.csv',row.names = FALSE)
+  write.csv(True_Labels_scmapcluster,'scmapcluster_True_Labels.csv',row.names = FALSE)
+  write.csv(Pred_Labels_scmapcluster,'scmapcluster_Pred_Labels.csv',row.names = FALSE)
+  write.csv(True_Labels_scmapcell,'scmapcell_True_Labels.csv',row.names = FALSE)
+  write.csv(Pred_Labels_scmapcell,'scmapcell_Pred_Labels.csv',row.names = FALSE)
+  write.csv(Training_Time_scmapcluster,'scmapcluster_Training_Time.csv',row.names = FALSE)
+  write.csv(Testing_Time_scmapcluster,'scmapcluster_Testing_Time.csv',row.names = FALSE)
+  write.csv(Training_Time_scmapcell,'scmapcell_Training_Time.csv',row.names = FALSE)
+  write.csv(Testing_Time_scmapcell,'scmapcell_Testing_Time.csv',row.names = FALSE)
 }
 
